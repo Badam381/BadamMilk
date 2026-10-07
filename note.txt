@@ -1,0 +1,1307 @@
+1.Employee Information
+Program using System;
+using System.Web.UI;
+
+
+namespace FORM
+{
+public partial class WebForm1 : System.Web.UI.Page
+{
+protected void Page_Load(object sender, EventArgs e)
+{
+}
+
+
+protected void Button1_Click(object sender, EventArgs e)
+{
+int a = Convert.ToInt32(TextBox8.Text); int b = Convert.ToInt32(TextBox9.Text);
+
+int g = a * b;
+
+
+TextBox10.Text = g.ToString();
+}
+}
+}
+Source code
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="WebForm1.aspx.cs" Inherits="FORM.WebForm1" %>
+
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+
+<head runat="server">
+<title>Employee Information System</title>
+</head>
+
+
+<body>
+
+
+<form id="form1" runat="server">
+
+
+<h2>EMPLOYEE INFORMATION SYSTEM</h2>
+
+
+<asp:Label ID="Label1" runat="server" Text="EMP NAME:"></asp:Label>
+<asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+<br /><br />
+
+
+<asp:Label ID="Label2" runat="server" Text="EMP ID:"></asp:Label>
+<asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
+<br /><br />
+
+
+<asp:Label ID="Label3" runat="server" Text="DESIGNATION:"></asp:Label>
+<asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>
+<br /><br />
+
+
+<asp:Label ID="Label4" runat="server" Text="AGE:"></asp:Label>
+<asp:TextBox ID="TextBox4" runat="server"></asp:TextBox>
+<br /><br />
+
+<asp:Label ID="Label5" runat="server" Text="SALARY:"></asp:Label>
+<asp:TextBox ID="TextBox5" runat="server"></asp:TextBox>
+<br /><br />
+
+
+<asp:Label ID="Label6" runat="server" Text="ADDRESS:"></asp:Label>
+<asp:TextBox ID="TextBox6" runat="server"></asp:TextBox>
+<br /><br />
+
+
+<asp:Label ID="Label8" runat="server" Text="EXPERIENCE:"></asp:Label>
+<asp:TextBox ID="TextBox7" runat="server"></asp:TextBox>
+<br /><br />
+
+
+<asp:Label ID="Label9" runat="server" Text="NO OF PRODUCTS:"></asp:Label>
+<asp:TextBox ID="TextBox8" runat="server"></asp:TextBox>
+<br /><br />
+
+
+<asp:Label ID="Label10" runat="server" Text="COST:"></asp:Label>
+<asp:TextBox ID="TextBox9" runat="server"></asp:TextBox>
+<br /><br />
+
+
+<asp:Label ID="Label7" runat="server" Text="TOTAL:"></asp:Label>
+<asp:TextBox ID="TextBox10" runat="server"></asp:TextBox>
+<br /><br />
+
+
+<asp:Button ID="Button1" runat="server"
+Text="CLICK HERE TO REGISTER"
+OnClick="Button1_Click" />
+
+</form>
+
+
+</body>
+</html>
+   
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.ATM Transaction
+Program using System;
+using System.Web.UI;
+
+
+namespace radio
+{
+public partial class _Default : System.Web.UI.Page
+{
+protected void Page_Load(object sender, EventArgs e)
+{
+}
+
+
+protected void RadioButtonList1_SelectedIndexChanged( object sender, EventArgs e)
+{
+if (RadioButtonList1.SelectedValue == "Deposit" || RadioButtonList1.SelectedValue == "Withdraw")
+{
+Label5.Visible = true;
+Label5.Text = "Welcome " + TextBox1.Text;
+
+
+Label6.Visible = true; TextBox3.Visible = true;
+}
+else
+{
+Label5.Visible = false; Label6.Visible = false;
+
+TextBox3.Visible = false; Label7.Visible = false;
+}
+}
+
+
+protected void TextBox3_TextChanged(object sender, EventArgs e)
+{
+if (RadioButtonList1.SelectedValue == "Deposit")
+{
+Label7.Visible = true;
+Label7.Text = "Your amount " + TextBox3.Text
++ " is credited";
+}
+else if (RadioButtonList1.SelectedValue == "Withdraw")
+{
+Label7.Visible = true;
+Label7.Text = "Your amount " + TextBox3.Text
++ " is debited";
+}
+}
+}
+}
+
+
+Source code
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="radio._Default" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+
+<head runat="server">
+<title>ATM Transaction</title>
+</head>
+
+
+<body>
+<form id="form1" runat="server">
+
+
+<h2>ATM TRANSACTION</h2>
+
+
+<asp:Label ID="Label1" runat="server" Text="Name"></asp:Label>
+
+<asp:TextBox ID="TextBox1" runat="server">
+</asp:TextBox>
+
+
+<br /><br />
+
+
+<asp:Label ID="Label2" runat="server" Text="Enter the PIN"></asp:Label>
+
+<asp:TextBox ID="TextBox2" runat="server" TextMode="Password"></asp:TextBox>
+
+<br /><br />
+
+
+<asp:Label ID="Label3" runat="server" Text="Choose any one:"></asp:Label>
+
+<br /><br />
+
+
+<asp:RadioButtonList ID="RadioButtonList1" runat="server"
+AutoPostBack="True" OnSelectedIndexChanged="RadioButtonList1_SelectedIndexChanged">
+
+<asp:ListItem>Deposit</asp:ListItem>
+<asp:ListItem>Withdraw</asp:ListItem>
+
+
+</asp:RadioButtonList>
+
+
+<br />
+
+
+<asp:Label ID="Label5" runat="server" Visible="False"></asp:Label>
+
+<br /><br />
+
+
+<asp:Label ID="Label6" runat="server" Text="Enter the amount" Visible="False"></asp:Label>
+
+<asp:TextBox ID="TextBox3" runat="server" AutoPostBack="True" OnTextChanged="TextBox3_TextChanged" Visible="False"></asp:TextBox>
+
+<br /><br />
+
+
+<asp:Label ID="Label7" runat="server" Visible="False"></asp:Label>
+
+</form>
+</body>
+</html>
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+3.Railway Reservation
+Program using System;
+using System.Web.UI;
+
+
+namespace loginform
+{
+public partial class railway : System.Web.UI.Page
+{
+protected void Page_Load(object sender, EventArgs e)
+{
+}
+
+
+protected void Calendar1_SelectionChanged(object sender, EventArgs e)
+{
+DateTime d, d1;
+
+
+d = DateTime.Now.Date;
+d1 = Calendar1.SelectedDate;
+
+
+if (d1 >= d)
+{
+TextBox4.Text = d1.ToShortDateString();
+}
+else
+{
+Response.Write("<script>alert('Invalid date')</script>");
+}
+}
+
+protected void Button1_Click(object sender, EventArgs e)
+{
+Label1.Text = "Your journey date is " + TextBox4.Text;
+}
+}
+}
+
+
+Source code
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="railway.aspx.cs" Inherits="loginform.railway" %>
+
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+
+<head runat="server">
+<title>Railway Reservation</title>
+</head>
+
+
+<body>
+
+
+<form id="form1" runat="server">
+
+
+<h2>RAILWAY RESERVATION</h2>
+
+
+<asp:Label ID="Label2" runat="server" Text="NAME:"></asp:Label>
+
+<asp:TextBox ID="TextBox1" runat="server">
+</asp:TextBox>
+
+
+<br /><br />
+
+
+<asp:Label ID="Label3" runat="server" Text="FROM:"></asp:Label>
+
+<asp:TextBox ID="TextBox2" runat="server">
+</asp:TextBox>
+
+
+<br /><br />
+
+
+<asp:Label ID="Label4" runat="server" Text="TO:"></asp:Label>
+
+<asp:TextBox ID="TextBox3" runat="server">
+</asp:TextBox>
+
+
+<br /><br />
+
+
+<asp:Label ID="Label5" runat="server" Text="JOURNEY DATE:"></asp:Label>
+
+<asp:TextBox ID="TextBox4" runat="server">
+</asp:TextBox>
+
+
+<br /><br />
+
+<asp:Calendar ID="Calendar1" runat="server"
+OnSelectionChanged="Calendar1_SelectionChanged">
+</asp:Calendar>
+
+
+<br />
+
+
+<asp:Button ID="Button1" runat="server" Text="BOOK TICKET"
+OnClick="Button1_Click" />
+
+
+<br /><br />
+
+
+<asp:Label ID="Label1" runat="server">
+</asp:Label>
+
+
+</form>
+
+
+</body>
+</html>
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+4.Validator Program using System;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+
+
+namespace customvalidation
+{
+public partial class customvalidation : System.Web.UI.Page
+{
+protected void Page_Load(object sender, EventArgs e)
+{
+}
+
+
+protected void CustomValidator1_ServerValidate( object source,
+ServerValidateEventArgs args)
+{
+if (args.Value.Length > 20)
+{
+args.IsValid = false;
+}
+else
+{
+args.IsValid = true;
+}
+}
+
+protected void Button1_Click(object sender, EventArgs e)
+{
+if (Page.IsValid)
+{
+Response.Write("Your feedback has been submitted");
+}
+}
+}
+}
+
+
+Source Code
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="customvalidation.aspx.cs" Inherits="customvalidation.customvalidation" %>
+
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+
+<head runat="server">
+<title>Custom Validator</title>
+</head>
+
+
+<body>
+
+
+<form id="form1" runat="server">
+
+
+<h2>CUSTOM VALIDATOR</h2>
+
+<asp:Label ID="Label1" runat="server" Text="Name">
+</asp:Label>
+
+
+<asp:TextBox ID="TextBox1" runat="server">
+</asp:TextBox>
+
+
+<asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="TextBox1" ErrorMessage="Name is required" ForeColor="Red">
+</asp:RequiredFieldValidator>
+
+
+<br /><br />
+
+
+<asp:Label ID="Label2" runat="server" Text="Age">
+</asp:Label>
+
+
+<asp:TextBox ID="TextBox2" runat="server">
+</asp:TextBox>
+
+
+<asp:RequiredFieldValidator
+
+ID="RequiredFieldValidator4" runat="server" ControlToValidate="TextBox2" ErrorMessage="Age is required" ForeColor="Red">
+</asp:RequiredFieldValidator>
+
+
+<asp:RangeValidator ID="RangeValidator1" runat="server" ControlToValidate="TextBox2" MinimumValue="20" MaximumValue="40" Type="Integer"
+ErrorMessage="Age should be between 20 and 40" ForeColor="Red">
+</asp:RangeValidator>
+
+
+<br /><br />
+
+
+<asp:Label ID="Label4" runat="server" Text="Phone No">
+</asp:Label>
+
+
+<asp:TextBox ID="TextBox4" runat="server">
+</asp:TextBox>
+
+<asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="TextBox4" ValidationExpression="\d{10}"
+ErrorMessage="Phone number must contain 10 digits" ForeColor="Red">
+</asp:RegularExpressionValidator>
+
+
+<br /><br />
+
+
+<asp:Label ID="Label3" runat="server" Text="Feedback">
+</asp:Label>
+
+
+<asp:TextBox ID="TextBox3" runat="server" TextMode="MultiLine">
+</asp:TextBox>
+
+
+<asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="TextBox3" ErrorMessage="Feedback is required" ForeColor="Red">
+</asp:RequiredFieldValidator>
+
+<asp:CustomValidator ID="CustomValidator1" runat="server" ControlToValidate="TextBox3"
+ErrorMessage="Feedback should be less than 20 characters" ForeColor="Red" OnServerValidate="CustomValidator1_ServerValidate">
+</asp:CustomValidator>
+
+
+<br /><br />
+
+
+<asp:Button ID="Button1" runat="server" Text="Submit" OnClick="Button1_Click" />
+
+</form>
+
+
+</body>
+</html>
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+5.Customer Validator
+Program using System;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+
+
+namespace validation
+{
+public partial class WebForm1 : System.Web.UI.Page
+{
+protected void Page_Load(object sender, EventArgs e)
+{
+}
+
+
+protected void CustomValidator1_ServerValidate( object source,
+ServerValidateEventArgs args)
+{
+if (args.Value.Length > 20)
+{
+args.IsValid = false;
+}
+else
+{
+args.IsValid = true;
+}
+}
+
+
+protected void Button1_Click(object sender, EventArgs e)
+
+{
+if (Page.IsValid)
+{
+Response.Write("Your feedback has been submitted");
+}
+}
+}
+}
+
+
+
+
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="WebForm1.aspx.cs" Inherits="validation.WebForm1" %>
+
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+
+<head runat="server">
+<title>Custom Validation</title>
+</head>
+
+
+<body>
+
+
+<form id="form1" runat="server">
+
+
+<h2>CUSTOM VALIDATION</h2>
+
+
+<asp:Label ID="Label1"
+
+runat="server" Text="Name">
+</asp:Label>
+
+
+<asp:TextBox ID="TextBox1" runat="server">
+</asp:TextBox>
+
+
+<asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="TextBox1" ErrorMessage="Name is required" ForeColor="Red">
+</asp:RequiredFieldValidator>
+
+
+<br /><br />
+
+
+<asp:Label ID="Label2" runat="server" Text="Age">
+</asp:Label>
+
+
+<asp:TextBox ID="TextBox2" runat="server">
+</asp:TextBox>
+
+
+<asp:RequiredFieldValidator ID="RequiredFieldValidator2"
+
+runat="server" ControlToValidate="TextBox2" ErrorMessage="Age is required" ForeColor="Red">
+</asp:RequiredFieldValidator>
+
+
+<br /><br />
+
+
+<asp:Label ID="Label3" runat="server" Text="Mobile No">
+</asp:Label>
+
+
+<asp:TextBox ID="TextBox3" runat="server">
+</asp:TextBox>
+
+
+<asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="TextBox3" ErrorMessage="Mobile no is required" ForeColor="Red">
+</asp:RequiredFieldValidator>
+
+
+<br /><br />
+
+
+<asp:Label ID="Label4" runat="server"
+
+Text="Feedback">
+</asp:Label>
+
+
+<asp:TextBox ID="TextBox4" runat="server" TextMode="MultiLine">
+</asp:TextBox>
+
+
+<asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="TextBox4" ErrorMessage="Feedback is required" ForeColor="Red">
+</asp:RequiredFieldValidator>
+
+
+<asp:CustomValidator ID="CustomValidator1" runat="server" ControlToValidate="TextBox4"
+ErrorMessage="Feedback should be less than 20 characters" ForeColor="Red" OnServerValidate="CustomValidator1_ServerValidate">
+</asp:CustomValidator>
+
+
+<br /><br />
+
+
+<asp:Button ID="Button1" runat="server"
+
+Text="Submit" OnClick="Button1_Click" />
+
+</form>
+
+
+</body>
+</html>
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+6.Student Management System
+program using System;
+using System.Collections.Generic; using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+
+
+namespace StudentManagementSystem
+{
+public partial class _Default : System.Web.UI.Page
+{
+protected void Page_Load(object sender, EventArgs e)
+{
+
+
+}
+protected void Button1_Click(object sender, EventArgs e)
+{
+Label6.Text = "Student Details";
+Label7.Text = "Student ID: " + TextBox1.Text; Label8.Text = "Name: " + TextBox2.Text; Label9.Text = "Age: " + TextBox3.Text; Label10.Text = "Course: " + TextBox4.Text; Label11.Text = "Phone: " + TextBox5.Text;
+}
+}
+}
+
+Source Code:
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="StudentManagementSystem._Default" %>
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+<title>Student Management System</title>
+</head>
+
+
+<body>
+
+
+<form id="form1" runat="server">
+
+
+<h2>STUDENT MANAGEMENT SYSTEM</h2>
+
+
+<asp:Label ID="Label1" runat="server" Text="STUDENT ID"></asp:Label>
+<asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+<br /><br />
+
+
+<asp:Label ID="Label2" runat="server" Text="NAME"></asp:Label>
+<asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
+<br /><br />
+
+
+<asp:Label ID="Label3" runat="server" Text="AGE"></asp:Label>
+<asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>
+<br /><br />
+
+<asp:Label ID="Label4" runat="server" Text="COURSE"></asp:Label>
+<asp:TextBox ID="TextBox4" runat="server"></asp:TextBox>
+<br /><br />
+
+
+<asp:Label ID="Label5" runat="server" Text="PHONE"></asp:Label>
+<asp:TextBox ID="TextBox5" runat="server"></asp:TextBox>
+<br /><br />
+
+
+<asp:Button ID="Button1" runat="server" Text="SUBMIT"
+OnClick="Button1_Click" />
+
+
+<br /><br />
+
+
+<asp:Label ID="Label6" runat="server"></asp:Label>
+<br />
+
+
+<asp:Label ID="Label7" runat="server"></asp:Label>
+<br />
+
+
+<asp:Label ID="Label8" runat="server"></asp:Label>
+<br />
+
+
+<asp:Label ID="Label9" runat="server"></asp:Label>
+<br />
+
+
+<asp:Label ID="Label10" runat="server"></asp:Label>
+<br />
+
+<asp:Label ID="Label11" runat="server"></asp:Label>
+
+
+</form>
+
+
+</body>
+</html>
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+7.Library Management System
+Program:
+using System;
+using System.Collections.Generic; using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+
+
+namespace Library_Management_System
+{
+public partial class _Default : System.Web.UI.Page
+{
+protected void Page_Load(object sender, EventArgs e)
+{
+
+
+}
+protected void Calendar1_SelectionChanged(object sender, EventArgs e)
+{
+TextBox5.Text = Calendar1.SelectedDate.ToShortDateString();
+}
+
+
+protected void Button1_Click(object sender, EventArgs e)
+{
+DateTime issueDate = Calendar1.SelectedDate; DateTime dueDate = issueDate.AddDays(14);
+
+Label7.Visible = true;
+
+
+Label7.Text = "Book issued successfully. Due Date: "
+
++ dueDate.ToShortDateString();
+}
+}
+}
+Source Code:
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="Library_Management_System._Default" %>
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+<title>Library Management System</title>
+</head>
+<body>
+
+
+<form id="form1" runat="server">
+
+
+<h2>LIBRARY MANAGEMENT SYSTEM</h2>
+
+
+<asp:Label ID="Label1" runat="server" Text="Book ID"></asp:Label>
+<asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+
+
+<br /><br />
+
+
+<asp:Label ID="Label2" runat="server" Text="Book Name"></asp:Label>
+<asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
+
+<br /><br />
+
+
+<asp:Label ID="Label3" runat="server" Text="Author Name"></asp:Label>
+<asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>
+
+
+<br /><br />
+
+
+<asp:Label ID="Label4" runat="server" Text="Student Name"></asp:Label>
+<asp:TextBox ID="TextBox4" runat="server"></asp:TextBox>
+
+
+<br /><br />
+
+
+<asp:Label ID="Label5" runat="server" Text="Issue Date"></asp:Label>
+<asp:TextBox ID="TextBox5" runat="server" ReadOnly="true"></asp:TextBox>
+
+<br /><br />
+
+
+<asp:Calendar ID="Calendar1" runat="server" OnSelectionChanged="Calendar1_SelectionChanged">
+</asp:Calendar>
+
+
+<br />
+
+
+<asp:Button ID="Button1" runat="server"
+
+Text="ISSUE BOOK"
+OnClick="Button1_Click" />
+
+
+<br /><br />
+
+
+<asp:Label ID="Label7" runat="server" Visible="false"></asp:Label>
+
+</form>
+
+
+</body>
+</html>
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+8.Bus reservation management
+Program:
+using System;
+using System.Collections.Generic; using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+
+
+namespace Bus_reservation
+{
+public partial class _Default : System.Web.UI.Page
+{
+protected void Page_Load(object sender, EventArgs e)
+{
+
+
+}
+protected void Calendar1_SelectionChanged(object sender, EventArgs e)
+{
+TextBox4.Text = Calendar1.SelectedDate.ToShortDateString();
+}
+
+
+protected void Button1_Click(object sender, EventArgs e)
+{
+Label6.Visible = true;
+
+
+Label6.Text = "Bus ticket reserved successfully for "
++ TextBox4.Text;
+}
+}
+
+}
+Source Code:
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="Bus_reservation._Default" %>
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+<title>Bus Reservation System</title>
+</head>
+
+
+<body>
+<form id="form1" runat="server">
+
+
+<h2>BUS RESERVATION SYSTEM</h2>
+
+
+<asp:Label ID="Label1" runat="server" Text="Passenger Name"></asp:Label>
+
+<asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+
+
+<br /><br />
+
+
+<asp:Label ID="Label2" runat="server" Text="From"></asp:Label>
+
+<asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
+
+<br /><br />
+
+
+<asp:Label ID="Label3" runat="server" Text="To"></asp:Label>
+
+<asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>
+
+
+<br /><br />
+
+
+<asp:Label ID="Label4" runat="server" Text="Journey Date"></asp:Label>
+
+<asp:TextBox ID="TextBox4" runat="server" ReadOnly="true"></asp:TextBox>
+
+<br /><br />
+
+
+<asp:Calendar ID="Calendar1" runat="server" OnSelectionChanged="Calendar1_SelectionChanged">
+</asp:Calendar>
+
+
+<br />
+
+
+<asp:Label ID="Label5" runat="server" Text="Number of Seats"></asp:Label>
+
+<asp:TextBox ID="TextBox5" runat="server"></asp:TextBox>
+
+
+<br /><br />
+
+<asp:Button ID="Button1" runat="server" Text="BOOK TICKET"
+OnClick="Button1_Click" />
+
+
+<br /><br />
+
+
+<asp:Label ID="Label6" runat="server" Visible="false"></asp:Label>
+
+</form>
+</body>
+</html>
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+9.Flight Reservation Management
+Program:
+using System;
+using System.Collections.Generic; using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+
+
+namespace Flight_Reservation
+{
+public partial class _Default : System.Web.UI.Page
+{
+protected void Page_Load(object sender, EventArgs e)
+{
+
+
+}
+protected void Calendar1_SelectionChanged(object sender, EventArgs e)
+{
+TextBox4.Text = Calendar1.SelectedDate.ToShortDateString();
+}
+
+
+protected void Button1_Click(object sender, EventArgs e)
+{
+Label6.Visible = true;
+
+
+Label6.Text = "Flight ticket reserved successfully for "
++ TextBox4.Text;
+}
+}
+
+}
+Source Code:
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="Flight_Reservation._Default" %>
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+<title>Flight Reservation System</title>
+</head>
+
+
+<body>
+<form id="form1" runat="server">
+
+
+<h2>FLIGHT RESERVATION SYSTEM</h2>
+
+
+<asp:Label ID="Label1" runat="server" Text="Passenger Name"></asp:Label>
+
+<asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+
+
+<br /><br />
+
+
+<asp:Label ID="Label2" runat="server" Text="From"></asp:Label>
+
+<asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
+
+<br /><br />
+
+
+<asp:Label ID="Label3" runat="server" Text="To"></asp:Label>
+
+<asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>
+
+
+<br /><br />
+
+
+<asp:Label ID="Label4" runat="server" Text="Travel Date"></asp:Label>
+
+<asp:TextBox ID="TextBox4" runat="server" ReadOnly="true"></asp:TextBox>
+
+<br /><br />
+
+
+<asp:Calendar ID="Calendar1" runat="server" OnSelectionChanged="Calendar1_SelectionChanged">
+</asp:Calendar>
+
+
+<br />
+
+
+<asp:Label ID="Label5" runat="server" Text="Number of Passengers"></asp:Label>
+
+<asp:TextBox ID="TextBox5" runat="server"></asp:TextBox>
+
+
+<br /><br />
+
+<asp:Button ID="Button1" runat="server" Text="BOOK FLIGHT"
+OnClick="Button1_Click" />
+
+
+<br /><br />
+
+
+<asp:Label ID="Label6" runat="server" Visible="false"></asp:Label>
+
+</form>
+</body>
+</html>
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+10.Payroll
+Program:
+using System;
+using System.Collections.Generic; using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+
+
+namespace Payroll
+{
+public partial class _Default : System.Web.UI.Page
+{
+protected void Page_Load(object sender, EventArgs e)
+{
+
+
+}
+protected void Button1_Click(object sender, EventArgs e)
+{
+double basicSalary = Convert.ToDouble(TextBox4.Text); double allowance = Convert.ToDouble(TextBox5.Text); double deduction = Convert.ToDouble(TextBox6.Text);
+
+double netSalary = basicSalary + allowance - deduction;
+
+
+Label8.Visible = true;
+Label8.Text = "Net Salary: ₹" + netSalary;
+}
+}
+}
+
+Source Code:
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="Payroll._Default" %>
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+<title>Payroll Management System</title>
+</head>
+
+
+<body>
+<form id="form1" runat="server">
+
+
+<h2>PAYROLL MANAGEMENT SYSTEM</h2>
+
+
+<asp:Label ID="Label1" runat="server" Text="Employee ID"></asp:Label>
+
+<asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+
+
+<br /><br />
+
+
+<asp:Label ID="Label2" runat="server" Text="Employee Name"></asp:Label>
+
+<asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
+
+
+<br /><br />
+
+<asp:Label ID="Label3" runat="server" Text="Department"></asp:Label>
+
+<asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>
+
+
+<br /><br />
+
+
+<asp:Label ID="Label4" runat="server" Text="Basic Salary"></asp:Label>
+
+<asp:TextBox ID="TextBox4" runat="server"></asp:TextBox>
+
+
+<br /><br />
+
+
+<asp:Label ID="Label5" runat="server" Text="Allowance"></asp:Label>
+
+<asp:TextBox ID="TextBox5" runat="server"></asp:TextBox>
+
+
+<br /><br />
+
+
+<asp:Label ID="Label6" runat="server" Text="Deduction"></asp:Label>
+
+<asp:TextBox ID="TextBox6" runat="server"></asp:TextBox>
+
+
+<br /><br />
+
+<asp:Button ID="Button1" runat="server" Text="CALCULATE SALARY"
+OnClick="Button1_Click" />
+
+
+<br /><br />
+
+
+<asp:Label ID="Label8" runat="server" Visible="false"></asp:Label>
+
+</form>
+</body>
+</html>
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+11.Electricity Bill
+Program:
+using System;
+using System.Collections.Generic; using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+
+
+namespace Electricity_Bill
+{
+public partial class _Default : System.Web.UI.Page
+{
+protected void Page_Load(object sender, EventArgs e)
+{
+
+
+}
+protected void Button1_Click(object sender, EventArgs e)
+{
+int units = Convert.ToInt32(TextBox3.Text); double amount;
+
+if (units <= 100)
+{
+amount = units * 2;
+}
+else if (units <= 200)
+{
+amount = units * 3;
+}
+
+else
+{
+amount = units * 5;
+}
+
+
+Label5.Visible = true;
+Label5.Text = "Electricity Bill Amount: ₹" + amount;
+}
+}
+}
+Source Code:
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="Electricity_Bill._Default" %>
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+<title>Electricity Bill</title>
+</head>
+
+
+<body>
+<form id="form1" runat="server">
+
+
+<h2>ELECTRICITY BILL</h2>
+
+
+<asp:Label ID="Label1" runat="server" Text="Consumer Name"></asp:Label>
+
+<asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+
+
+<br /><br />
+
+
+<asp:Label ID="Label2" runat="server" Text="Consumer Number"></asp:Label>
+
+<asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
+
+
+<br /><br />
+
+
+<asp:Label ID="Label3" runat="server" Text="Units Consumed"></asp:Label>
+
+<asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>
+
+
+<br /><br />
+
+
+<asp:Button ID="Button1" runat="server" Text="GENERATE BILL"
+OnClick="Button1_Click" />
+
+
+<br /><br />
+
+
+<asp:Label ID="Label5" runat="server" Visible="false"></asp:Label>
+
+</form>
+</body>
+
+</html>
