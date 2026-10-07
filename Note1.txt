@@ -1,0 +1,803 @@
+1.MANIPULATION OF NUMBERS USING READLINE STATEMENT
+using System; class Program
+{
+static void Main()
+{
+string name;
+int m1, m2, m3, total; double average;
+Console.Write("Enter name: "); name = Console.ReadLine(); Console.Write("Enter mark 1: ");
+m1 = Convert.ToInt32(Console.ReadLine()); Console.Write("Enter mark 2: ");
+m2 = Convert.ToInt32(Console.ReadLine()); Console.Write("Enter mark 3: ");
+m3 = Convert.ToInt32(Console.ReadLine()); total = m1 + m2 + m3;
+average = total / 3.0; Console.WriteLine("\nName: " + name); Console.WriteLine("Mark 1: " + m1); Console.WriteLine("Mark 2: " + m2); Console.WriteLine("Mark 3: " + m3); Console.WriteLine("Total: " + total); Console.WriteLine("Average: " + average); Console.ReadLine();
+}
+}
+Output:
+
+Enter name: Mithun Enter mark 1: 80
+Enter mark 2: 75
+Enter mark 3: 90
+
+
+Name: Mithun Mark 1: 80
+Mark 2: 75
+Mark 3: 90
+Total: 245
+Average: 81.66666666666667
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.MANIPULATION OF NUMBERS USING COMMANDLINE STATEMENT
+using System;
+using System.Collections.Generic; using System.Text;
+namespace ConsoleApplication1
+{
+class Program
+{
+static void Main(string[] args)
+{
+int n1 = Convert.ToInt32(args[0]); int n2 = Convert.ToInt32(args[1]);
+Console.WriteLine("Addition: " + (n1 + n2)); Console.WriteLine("Subtraction: " + (n1 - n2)); Console.WriteLine("Multiplication: " + (n1 * n2)); Console.WriteLine("Division: " + ((double)n1 / n2)); Console.ReadKey();
+}
+}
+}
+Output:
+Addition: 15
+Subtraction: 5
+Multiplication: 50
+Division: 2
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+3.BOXING AND UNBOXING
+using System;
+using System.Collections.Generic; using System.Text;
+namespace ConsoleApplication1
+{
+class Program
+{
+static void Main(string[] args)
+{
+int num = 23;
+// Boxing
+object obj = num; Console.WriteLine("BOXING"); Console.WriteLine("Value = " + obj);
+// Unboxing object obj1 = 66;
+int num2 = (int)obj1; Console.WriteLine("UNBOXING"); Console.WriteLine("Value = " + num2); Console.ReadKey();
+}
+}
+}
+Output:
+BOXING
+Value = 23 UNBOXING
+Value = 66
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+4.ODD OR EVEN NUMBERS USING IF…ELSE
+using System;
+using System.Collections.Generic; using System.Text;
+namespace ConsoleApplication1
+{
+class Program
+{
+static void Main(string[] args)
+{
+Console.Write("Enter a number: ");
+int num = Convert.ToInt32(Console.ReadLine()); if (num % 2 == 0)
+Console.WriteLine("Even number"); else
+Console.WriteLine("Odd number"); Console.ReadKey();
+}
+}
+}
+Output:
+Enter a number: 8 Even number Enter a number: 7 Odd number
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+5.GRADING SYSTEM USING SWITCH CASE
+using System;
+using System.Collections.Generic; using System.Text;
+namespace ConsoleApplication1
+{
+class Program
+{
+static void Main(string[] args)
+{
+Console.Write("Enter grade: ");
+char grade = Convert.ToChar(Console.ReadLine().ToUpper()); switch (grade)
+{
+case 'S':
+Console.WriteLine("Excellent"); break;
+case 'O':
+Console.WriteLine("Good"); break;
+case 'A':
+Console.WriteLine("Fair"); break;
+case 'B':
+Console.WriteLine("Average"); break;
+case 'M': Console.WriteLine("Poor"); break;
+
+default:
+Console.WriteLine("Fail"); break;
+}
+Console.ReadKey();
+}
+}
+}
+Output:
+Enter grade: s Excellent
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+6.SUM OF DIGITS USING FOR LOOP
+using System;
+using System.Collections.Generic; using System.Text;
+namespace ConsoleApplication1
+{
+class Program
+{
+static void Main(string[] args)
+{
+Console.Write("Enter a number: ");
+int n = Convert.ToInt32(Console.ReadLine()); int sum = 0;
+for (; n != 0; n = n / 10)
+{
+sum = sum + n % 10;
+}
+Console.WriteLine("Sum of digits = " + sum); Console.ReadKey();
+}
+}
+}
+Output:
+Enter a number: 1234 Sum of digits = 10
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+7.ARRAYS
+using System;
+using System.Collections.Generic; using System.Text;
+namespace ConsoleApplication1
+{
+class Program
+{
+static void Main(string[] args)
+{
+// 1. SINGLE DIMENSIONAL ARRAY Console.WriteLine("1. SINGLE DIMENSIONAL ARRAY");
+
+string[] a = { "abc", "lmn", "xyz" };
+
+
+for (int i = 0; i < a.Length; i++) Console.WriteLine(a[i]);
+
+
+
+// 2. SINGLE DIMENSIONAL ARRAY USING FOREACH Console.WriteLine("\n2. SINGLE DIMENSIONAL ARRAY - FOREACH");
+
+string[] b = { "pop", "up", "this" };
+
+
+foreach (string x in b) Console.WriteLine(x);
+
+
+
+// 3. TWO DIMENSIONAL ARRAY
+
+Console.WriteLine("\n3. TWO DIMENSIONAL ARRAY");
+
+
+int[,] a1 = new int[2, 2];
+int[,] a2 = new int[2, 2];
+
+
+Console.WriteLine("Enter Matrix A");
+
+
+for (int i = 0; i < 2; i++) for (int j = 0; j < 2; j++)
+a1[i, j] = Convert.ToInt32(Console.ReadLine());
+
+
+Console.WriteLine("Enter Matrix B");
+
+
+for (int i = 0; i < 2; i++) for (int j = 0; j < 2; j++)
+a2[i, j] = Convert.ToInt32(Console.ReadLine());
+
+
+Console.WriteLine("Sum of Matrix");
+
+
+for (int i = 0; i < 2; i++)
+{
+for (int j = 0; j < 2; j++) Console.Write((a1[i, j] + a2[i, j]) + " ");
+
+Console.WriteLine();
+}
+
+
+
+
+// 4. JAGGED ARRAY
+
+Console.WriteLine("\n4. JAGGED ARRAY");
+
+
+int[][] jaggedArray =
+{
+new int[] { 1, 2, 3 },
+new int[] { 1, 2, 3, 4 },
+new int[] { 1, 2 }
+};
+
+
+foreach (int[] row in jaggedArray)
+{
+foreach (int n in row) Console.WriteLine(n);
+}
+
+
+Console.ReadKey();
+}
+}
+}
+Output:
+1.SINGLE DIMENSIONAL ARRAY
+abc lmn xyz
+2.SINGLE DIMENSIONAL ARRAY - FOREACH
+pop up this
+3.TWO DIMENSIONAL ARRAY
+
+Enter Matrix A 1
+2
+3
+4
+Enter Matrix B 1
+2
+3
+4
+Sum of Matrix 2 4
+6 8
+4.JAGGED ARRAY
+1
+2
+3
+1
+2
+3
+4
+1
+2
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+8.SYSTEM.ARRAY CLASS
+using System;
+using System.Collections.Generic; using System.Text;
+namespace ConsoleApplication1
+{
+class Program
+{
+static void Main(string[] args)
+{
+// 1. CREATE ARRAY
+Console.WriteLine("1. CREATE ARRAY");
+
+
+Array a = Array.CreateInstance(typeof(string), 4);
+
+
+a.SetValue("ram", 0);
+a.SetValue("rom", 1);
+a.SetValue("cd", 2);
+a.SetValue("harddisk", 3);
+
+
+foreach (string x in a) Console.WriteLine(x);
+
+
+
+// 2. ARRAY PROPERTIES
+Console.WriteLine("\n2. ARRAY PROPERTIES");
+
+
+Console.WriteLine("Fixed Size: " + a.IsFixedSize); Console.WriteLine("Length: " + a.Length);
+
+Console.WriteLine("Rank: " + a.Rank);
+
+
+
+
+// 3. LOWER AND UPPER BOUND
+Console.WriteLine("\n3. LOWER AND UPPER BOUND");
+
+
+Array b = Array.CreateInstance(typeof(int), 2, 3, 4);
+
+
+Console.WriteLine("Lower Bound: " + b.GetLowerBound(1)); Console.WriteLine("Upper Bound: " + b.GetUpperBound(1)); Console.WriteLine("Rank: " + b.Rank);
+
+
+
+// 4. SORT
+Console.WriteLine("\n4. SORTED ARRAY");
+
+
+Array.Sort(a);
+
+
+foreach (string x in a) Console.WriteLine(x);
+
+
+
+// 5. BINARY SEARCH
+Console.WriteLine("\n5. BINARY SEARCH");
+
+
+int index = Array.BinarySearch(a, "ram");
+
+
+if (index >= 0)
+Console.WriteLine("Item found at position: " + index);
+
+else
+Console.WriteLine("Item not found");
+
+
+
+
+// 6. REVERSE
+Console.WriteLine("\n6. REVERSED ARRAY");
+
+
+Array.Reverse(a);
+
+
+foreach (string x in a) Console.WriteLine(x);
+
+
+
+// 7. CLEAR
+Console.WriteLine("\n7. CLEAR ARRAY");
+
+
+Array.Clear(a, 1, 2);
+
+
+foreach (string x in a) Console.WriteLine(x);
+
+
+
+// 8. COPY
+Console.WriteLine("\n8. COPIED ARRAY");
+
+
+Array target = Array.CreateInstance(typeof(string), 4);
+
+
+Array.Copy(a, target, 3);
+
+foreach (string x in target) Console.WriteLine(x);
+
+Console.ReadKey();
+}
+}
+}
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+9.STRUCTURES & ENUMERATIONS
+using System;
+using System.Collections.Generic; using System.Text;
+struct Book
+{
+public string title; public string author; public int id;
+public int price;
+public double percentage;
+}
+enum Review
+{
+TopSelling = 0,
+DecentCopy = 1,
+FailureCopy = 2
+}
+namespace ConsoleApplication1
+{
+class Program
+{
+static void Main(string[] args)
+{
+Book b = new Book();
+
+
+Console.Write("Enter Title: "); b.title = Console.ReadLine();
+
+Console.Write("Enter Author: "); b.author = Console.ReadLine();
+
+Console.Write("Enter ID: ");
+b.id = Convert.ToInt32(Console.ReadLine());
+
+
+Console.Write("Enter Price: ");
+b.price = Convert.ToInt32(Console.ReadLine());
+
+
+Console.Write("Enter Percentage: ");
+b.percentage = Convert.ToDouble(Console.ReadLine());
+
+
+Console.WriteLine("\nBook Information"); Console.WriteLine("Title: " + b.title); Console.WriteLine("Author: " + b.author); Console.WriteLine("ID: " + b.id); Console.WriteLine("Price: " + b.price); Console.WriteLine("Percentage: " + b.percentage);
+
+if (b.percentage < 50)
+Console.WriteLine("Review: " + Review.FailureCopy); else if (b.percentage <= 70)
+Console.WriteLine("Review: " + Review.DecentCopy); else
+Console.WriteLine("Review: " + Review.TopSelling);
+
+
+Console.ReadKey();
+}
+}
+
+}
+Output:
+Enter Title: C# Programming Enter Author: John
+Enter ID: 101
+Enter Price: 500
+Enter Percentage: 80
+Output
+Book Information Title: C# Programming Author: John
+ID: 101
+Price: 500
+Percentage: 80 Review: TopSelling If percentage is 60 Book Information
+Title: C# Programming Author: John
+ID: 101
+Price: 500
+Percentage: 60 Review: DecentCopy If percentage is 40 Book Information Title: C# Programming Author: John
+ID: 101
+Price: 500
+
+Percentage: 40 Review: FailureCopy
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+10.CLASSES AND OBJECTS
+using System; class Student
+{
+string name; int age;
+int mark1, mark2, mark3;
+public Student(string n, int a, int m1, int m2, int m3)
+{
+name = n; age = a; mark1 = m1; mark2 = m2; mark3 = m3;
+}
+public void Display()
+{
+Console.WriteLine("Name: " + name); Console.WriteLine("Age: " + age); Console.WriteLine("Mark1: " + mark1); Console.WriteLine("Mark2: " + mark2); Console.WriteLine("Mark3: " + mark3);
+}
+}
+class Program
+{
+static void Main()
+{
+Console.WriteLine("Classes and Objects");
+
+Student s = new Student("Rasika", 21, 90, 92, 88); s.Display();
+Console.ReadKey();
+}
+}
+OUTPUT:
+Classes and Objects Name: Rasika
+Age: 21
+Mark1: 90
+Mark2: 92
+Mark3: 88
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+11.DEFAULT CONSTRUCTORS & PARAMETERIZED CONSTRUCTORS
+using System; class Student
+{
+int id;
+string name;
+// Default Constructor public Student()
+{
+id = 100;
+name = "Bala";
+}
+public void Display()
+{
+Console.WriteLine("Default Constructor:"); Console.WriteLine(id + " " + name);
+}
+}
+class Worker
+{
+int id;
+string name; float salary; int experience;
+// Parameterized Constructor
+public Worker(int i, string n, float s, int e)
+{
+id = i; name = n;
+
+salary = s; experience = e;
+}
+public void Display()
+{
+Console.WriteLine(id + " " + name + " " + salary + " " + experience);
+}
+}
+class Program
+{
+static void Main()
+{
+Student s = new Student();
+Worker w1 = new Worker(101, "Raja", 250000f, 5); Worker w2 = new Worker(102, "Suresh", 350000f, 3); Worker w3 = new Worker(103, "Arun", 250000f, 6); Console.WriteLine("DEFAULT CONSTRUCTOR"); s.Display();
+Console.WriteLine("\nPARAMETERIZED CONSTRUCTOR"); w1.Display();
+w2.Display();
+w3.Display(); Console.ReadLine();
+}
+}
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+
+12.SINGLE INHERITANCE
+using System;
+class ProductDetails
+{
+public string productName; public int id;
+public int quantity; public int cost;
+}
+class Product : ProductDetails
+{
+public void GetDetails()
+{
+Console.Write("Enter Product Name: "); productName = Console.ReadLine(); Console.Write("Enter ID: ");
+id = Convert.ToInt32(Console.ReadLine()); Console.Write("Enter Quantity: ");
+quantity = Convert.ToInt32(Console.ReadLine()); Console.Write("Enter Cost: ");
+cost = Convert.ToInt32(Console.ReadLine()); Console.WriteLine("\nProduct Details"); Console.WriteLine("Product Name: " + productName); Console.WriteLine("ID: " + id); Console.WriteLine("Quantity: " + quantity); Console.WriteLine("Cost: " + cost);
+}
+}
+
+class Program
+{
+static void Main()
+{
+Product p = new Product(); p.GetDetails(); Console.ReadLine();
+}
+}
+
+
+Output:
+Enter Product Name: Laptop Enter ID: 101
+Enter Quantity: 5
+Enter Cost: 50000
+
+
+Product Details Product Name: Laptop ID: 101
+Quantity: 5
+Cost: 50000
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+13.MULTI-LEVEL INHERITANCE
+using System; class Mode
+{
+public void Mode1()
+{
+Console.WriteLine("There are many modes of transport");
+}
+}
+class Vehicle : Mode
+{
+public void Feature()
+{
+Console.WriteLine("Helps in travelling");
+}
+}
+class Program : Vehicle
+{
+public void Noise()
+{
+Console.WriteLine("All vehicles create noise");
+}
+static void Main()
+{
+Console.WriteLine("Multilevel Inheritance"); Console.WriteLine("	");
+Program obj = new Program();
+
+
+obj.Mode1();
+
+obj.Feature(); obj.Noise(); Console.ReadLine();
+}
+}
+
+
+Output:
+Multilevel Inheritance
+
+
+There are many modes of transport Helps in travelling
+All vehicles create noise
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+14.HIEARARCHIAL INHERITANCE
+using System; class Library
+{
+public string title; public string author;
+}
+class Title : Library
+{
+public void GetTitle()
+{
+Console.Write("Enter Title: "); title = Console.ReadLine();
+
+Console.WriteLine("Title = " + title);
+}
+}
+class Author : Library
+{
+public void GetAuthor()
+{
+Console.Write("Enter Author: "); author = Console.ReadLine();
+
+Console.WriteLine("Author = " + author);
+}
+}
+
+
+class Program
+
+{
+static void Main()
+{
+Console.WriteLine("Hierarchical Inheritance"); Console.WriteLine("	");
+Title t = new Title(); Author a = new Author(); t.GetTitle(); a.GetAuthor(); Console.ReadLine();
+}
+}
+Output:
+Hierarchical Inheritance
+
+
+Enter Title: C# Programming Title = C# Programming Enter Author: John
+Author = John
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+15.INTERFACE
+using System; interface ITransactions
+{
+void ShowTransactions(); double GetAmount();
+}
+class Transaction : ITransactions
+{
+string code; string date; double amount;
+public Transaction(string c, string d, double a)
+{
+code = c; date = d; amount = a;
+}
+public double GetAmount()
+{
+return amount;
+}
+public void ShowTransactions()
+{
+Console.WriteLine("Transaction: " + code); Console.WriteLine("Date: " + date); Console.WriteLine("Amount: " + GetAmount()); Console.WriteLine();
+}
+
+}
+class Program
+{
+static void Main()
+{
+Transaction t1 = new Transaction("001", "30/07/1997", 9000); Transaction t2 = new Transaction("002", "05/07/1997", 8335); t1.ShowTransactions();
+t2.ShowTransactions(); Console.ReadLine();
+}
+}
+Output: Transaction: 001 Date: 30/07/1997 Amount: 9000
+
+Transaction: 002 Date: 05/07/1997 Amount: 8335
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+16.EXCEPTION HANDLING
+using System; class Program
+{
+static void Main()
+{
+try
+{
+Console.Write("Enter age: ");
+int age = Convert.ToInt32(Console.ReadLine()); if (age < 18)
+throw new Exception("Age must be 18 or above");
+
+
+Console.WriteLine("Eligible");
+}
+catch (Exception e)
+{
+Console.WriteLine("Exception: " + e.Message);
+}
+finally
+{
+Console.WriteLine("Finally block executed");
+}
+
+
+Console.ReadLine();
+}
+}
+
+Output
+If age is 20:
+Enter age: 20 Eligible
+Finally block executed
+If age is 15:
+Enter age: 15
+Exception: Age must be 18 or above Finally block executed
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+17.COUNTING ALPHABETS USING FOREACH STATEMENT
+using System; namespace foreach
+{
+class Program
+{
+static void Main(string[] args)
+{
+string s;
+int a = 0, t = 0, space = 0; Console.WriteLine("Enter a string"); Console.WriteLine("	");
+s = Console.ReadLine(); Console.WriteLine("	");
+Console.WriteLine("Result is:"); foreach (char ch in s)
+{
+if (ch == 'a') a++;
+if (ch == 't') t++;
+if (ch == ' ') space++;
+}
+Console.WriteLine("No of 'A' = " + a); Console.WriteLine("No of 'T' = " + t); Console.WriteLine("No of 'Space' = " + space); Console.ReadLine();
+}
+
+}
+}
+Output:
+Enter a string
+
+
+data table
+
+
+Result is:
+No of 'A' = 3 No of 'T' = 2
+No of 'Space' = 1
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Idhu custom exception handling program
+
+using System;
+
+class AgeException : Exception
+{
+    public AgeException(string message) : base(message)
+    {
+    }
+}
+
+class Program
+{
+    static void Main()
+    {
+        try
+        {
+            Console.Write("Enter age: ");
+            int age = Convert.ToInt32(Console.ReadLine());
+
+            if (age < 18)
+                throw new AgeException("Age must be 18 or above");
+
+            Console.WriteLine("Eligible");
+        }
+        catch (AgeException e)
+        {
+            Console.WriteLine("Exception: " + e.Message);
+        }
+
+        Console.ReadLine();
+    }
+}
